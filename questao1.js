@@ -81,7 +81,7 @@ function criarVertices(index) {
   
 criarVertices(0);
 
-
+module.exports = Vertice;
 
 
 
