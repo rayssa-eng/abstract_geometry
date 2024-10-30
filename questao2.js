@@ -15,9 +15,9 @@ class Triangulo {
         throw new Error("esses vértices não formam um triângulo.")
     }
 
-      this.#v1 = v1;
-      this.#v2 = v2;
-      this.#v3 = v3;
+    this.#v1 = v1;
+    this.#v2 = v2;
+    this.#v3 = v3;
 
   }
 
