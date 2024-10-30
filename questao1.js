@@ -1,4 +1,5 @@
-const readline = require('readline');
+const prompt = require('prompt-sync')({ sigint: true });
+
 
 class Vertice {
     #x;
@@ -45,43 +46,39 @@ class Vertice {
         }
     }
 }
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-const vertices = [];
-
-function criarVertices(index) {
-    if (index < 3) {
-      rl.question(`Digitar coordenada x do vértice ${index + 1}: `, (x) => {
-        rl.question(`Digitar coordenada y do vértice ${index + 1}: `, (y) => {
-          const novoVertice = new Vertice(parseFloat(x), parseFloat(y));
-          vertices.push(novoVertice);
-          console.log(`Novo vértice criado em (${novoVertice.x}, ${novoVertice.y})`);
-          criarVertices(index + 1);
-        });
-      });
-    } else {
-        rl.close();
-
-        if (vertices.length == 3) {
-            console.log(`v1 e v2 são iguais? ${vertices[0].equals(vertices[1]) ? "sim!" : "não!!"}`);
-            console.log(`distância entre v1 e v3 é: ${vertices[0].distancia(vertices[2])}`);
-
-            x0v3 = vertices[2].x;
-            y0v3 = vertices[2].y;
-
-            vertices[2].move(15, 85);
-            console.log(`v3 foi de (${x0v3}, ${y0v3}) pra (${vertices[2].x}, ${vertices[2].y})`);
-        }
-    }
-}
   
-criarVertices(0);
+function createVertice() {
+    const x = parseFloat(prompt("Digitar coordenada x: "));
+    const y = parseFloat(prompt("Digitar coordenada y: "));
+    return new Vertice(x, y);
+}
 
 module.exports = Vertice;
+
+if (require.main === module) {
+    console.log("iniciando processo de criação de vértices...");
+
+    const vertices = [];
+
+    for (let i = 1; i <= 3; i++) {
+        console.log(`criando vértice ${i}`);
+        vertices.push(createVertice());
+    }
+
+    vertices.forEach((v, index) => {
+        console.log(`vertice ${index + 1} criado em (${v.x}, ${v.y})`);
+    });
+
+    console.log(`v1 e v2 são iguais? ${vertices[0].equals(vertices[1]) ? "sim!" : "não!!"}`);
+    console.log(`distância entre v1 e v3 é: ${vertices[0].distancia(vertices[2])}`);
+
+    const x0v3 = vertices[2].x;
+    const y0v3 = vertices[2].y;
+
+    vertices[2].move(15, 85);
+    console.log(`v3 foi de (${x0v3}, ${y0v3}) pra (${vertices[2].x}, ${vertices[2].y})`);
+}
+
 
 
 
