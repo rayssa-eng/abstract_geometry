@@ -57,7 +57,6 @@ function createPolygon() {
         
     }
 
-    // Collecting coordinates for each vertex
     for (let i = 0; i < numVertices; i++) {
         const x = parseFloat(prompt(`digite a coordenada x do vértice ${i + 1}: `));
         const y = parseFloat(prompt(`digite a coordenada y do vértice ${i + 1}: `));
