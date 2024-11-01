@@ -30,16 +30,16 @@ class Triangulo {
   set v3(v3) { this.v3 = v3; }
 
   equals(outroTriangulo) {
-      if (!(outroTriangulo instanceof Triangulo)) throw new Error("objeto de comparacao nao é um triangulo.");
+    if (!(outroTriangulo instanceof Triangulo)) throw new Error("objeto de comparacao nao é um triangulo.");
 
-      var essesVertices = [this.#v1, this.#v2, this.#v3];
-      var outrosVertices = [outroTriangulo.#v1, outroTriangulo.#v2, outroTriangulo.#v3];
+    var essesVertices = [this.#v1, this.#v2, this.#v3];
+    var outrosVertices = [outroTriangulo.#v1, outroTriangulo.#v2, outroTriangulo.#v3];
 
-      var checarIgualdade = essesVertices.every(esseVertice => 
-          outrosVertices.some(outroVertice => esseVertice.equals(outroVertice))
-      ); 
-      
-      return checarIgualdade;
+    var checarIgualdade = essesVertices.every(esseVertice => 
+        outrosVertices.some(outroVertice => esseVertice.equals(outroVertice))
+    ); 
+    
+    return checarIgualdade;
   }
 
   get perimetro() {

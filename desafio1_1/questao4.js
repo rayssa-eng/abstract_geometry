@@ -20,7 +20,7 @@ class Turma {
             this.#alunos.push(aluno);
             return true;
         } else {
-            console.log(`aluno com matricula ${aluno.matricula} ja consta na turma.`);
+            // console.log(`aluno com matricula ${aluno.matricula} ja consta na turma.`);
             return false;
         }
     }
@@ -47,8 +47,8 @@ class Turma {
 }
 
 class Aluno {
-    matricula;
-    nome;
+    #matricula;
+    #nome;
     #P1;
     #P2;
 
