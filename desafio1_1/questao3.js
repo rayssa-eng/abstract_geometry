@@ -13,7 +13,7 @@ class Poligono {
     }
 
     addVertice(v) {
-        if (!(vertex instanceof Vertice)) {
+        if (!(v instanceof Vertice)) {
             throw new Error("deve-se adicionar um objeto do tipo Vertice.");
         }
 
